@@ -25,7 +25,7 @@ export class AssignmentsService {
     return this.http.get<Assignment>(this.uri+"/"+id);
 
   }
-  addAssignment(assignment:Assignment):Observable<Object>{
+  addAssignment(assignment:Assignment):Observable<any>{
     assignment.id=this.generateId();
    /* this.assignments.push(assignment);*/
    const headers = new HttpHeaders()
@@ -37,11 +37,11 @@ export class AssignmentsService {
   return Math.round(Math.random()*100000);  
   }
 
-  updateAssignment(assignment:Assignment):Observable<Object>{
+  updateAssignment(assignment:Assignment):Observable<any>{
     return this.http.put(this.uri,assignment);  
   }
 
-  deleteAssignment(assignment:Assignment):Observable<Object>{
-    return this.http.delete(this.uri+"/"+assignment.id);
+  deleteAssignment(assignment:Assignment):Observable<any>{
+    return this.http.delete(this.uri+"/"+assignment._id);
 }
 }

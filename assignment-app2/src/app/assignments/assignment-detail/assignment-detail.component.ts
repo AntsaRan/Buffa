@@ -34,10 +34,9 @@ export class AssignmentDetailComponent implements OnInit {
   }
   onAssignmentRendu() {
     this.assignmentTransmis.rendu = true;
-
     this.assignmentService.updateAssignment(this.assignmentTransmis)
-      .subscribe(message => {
-        console.log(message);
+      .subscribe(response => {
+        console.log(response.message);
         this.router.navigate(["/home"]);
       })
     //this.assignmentTransmis = null;*/
@@ -66,4 +65,5 @@ export class AssignmentDetailComponent implements OnInit {
   isAdmin(){
      return this.authservice.admin;
   }
+  
 }
